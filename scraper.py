@@ -97,8 +97,6 @@ def scrape_8891(category="motorcycle", max_pages=3):
     """
     base_url = (
         "https://www.8891.com.tw/usedauto-moto.html"
-        if category == "motorcycle"
-        else "https://www.8891.com.tw/usedauto-index.html"
     )
     
     all_records = []
@@ -146,8 +144,3 @@ if __name__ == "__main__":
     moto_df = scrape_8891(category="motorcycle", max_pages=50)
     moto_df.to_csv("8891_motorcycles.csv", index=False, encoding="utf-8-sig")
     print(f"Saved {len(moto_df)} motorcycle records to 8891_motorcycles.csv")
-
-    # Scrape Cars (First 2 Pages)
-    car_df = scrape_8891(category="car", max_pages=50)
-    car_df.to_csv("8891_cars.csv", index=False, encoding="utf-8-sig")
-    print(f"Saved {len(car_df)} car records to 8891_cars.csv")
